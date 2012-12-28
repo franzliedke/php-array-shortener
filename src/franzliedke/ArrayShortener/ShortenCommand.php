@@ -10,8 +10,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ShortenCommand extends Command
 {
+	protected $shortener;
+
 	protected $balance = 0;
 	protected $array_balancer_stack = array();
+
+	public function setShortener(Shortener $shortener)
+	{
+		$this->shortener = $shortener;
+	}
 
 	protected function configure()
 	{
@@ -25,8 +32,7 @@ class ShortenCommand extends Command
 		$file = $input->getArgument('file');
 		$source = file_get_contents($file);
 
-		$shortener = new Shortener($source);
-		$result = $shortener->shorten();
+		$result = $this->shortener->shorten($source);
 
 		$output->write($result);
 	}

@@ -4,8 +4,14 @@
 include 'vendor/autoload.php';
 
 use franzliedke\ArrayShortener\ShortenCommand;
+use franzliedke\ArrayShortener\Shortener;
 use Symfony\Component\Console\Application;
 
+$shortener = new Shortener;
+
+$command = new ShortenCommand;
+$command->setShortener($shortener);
+
 $application = new Application();
-$application->add(new ShortenCommand);
+$application->add($command);
 $application->run();

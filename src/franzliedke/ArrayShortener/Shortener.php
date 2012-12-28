@@ -4,19 +4,12 @@ namespace franzliedke\ArrayShortener;
 
 class Shortener
 {
-	protected $source = '';
-
 	protected $balance = 0;
 	protected $array_balancer_stack = array();
 
-	public function __construct($source)
+	public function shorten($source)
 	{
-		$this->source = $source;
-	}
-
-	public function shorten()
-	{
-		$tokens = $this->tokenize($this->source);
+		$tokens = $this->tokenize($source);
 
 		$output = '';
 		foreach ($tokens as $token)
