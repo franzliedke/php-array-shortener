@@ -21,11 +21,16 @@ In your command line, run:
 
 This will print the converted code to the command line so that you can pipe it to another file, for example.
 
-To convert all files in an entire directory, run:
+To convert all PHP files in an entire directory, run:
 
     php shortener shorten dirname
 
-To convert all files in an entire directory and all of its subdirectories, run either of the following two commands:
+To convert all PHP files in an entire directory and all of its subdirectories, run either of the following two commands:
 
     php shortener shorten -r dirname
     php shortener shorten --recursive dirname
+
+All converted files will be written to the `shortened_files` directory. If you want to change that behavior (e.g. to convert existing files directly), provide the `output` option:
+
+    php shortener shorten dirname -o myoutputdir
+    php shortener shorten dirname --output myoutputdir
