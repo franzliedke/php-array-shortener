@@ -83,7 +83,7 @@ class Shortener
 
 	protected function handleOpeningParen()
 	{
-		if (end($this->array_balancer_stack) == $this->balance)
+		if (count($this->array_balancer_stack) && end($this->array_balancer_stack) == $this->balance)
 		{
 			$this->balance++;
 			return '[';
@@ -97,7 +97,7 @@ class Shortener
 	{
 		$this->balance--;
 
-		if (end($this->array_balancer_stack) == $this->balance)
+		if (count($this->array_balancer_stack) && end($this->array_balancer_stack) == $this->balance)
 		{
 			array_pop($this->array_balancer_stack);
 			return ']';
