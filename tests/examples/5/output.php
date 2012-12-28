@@ -6,7 +6,7 @@ function some_random_function(array
 	$typehint)
 {
 	// Here we just execute random code
-	$var = [
+	$var =    [
 'bar'
 		];
 	return strtolower('BARFOO');
