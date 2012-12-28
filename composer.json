@@ -1,0 +1,9 @@
+{
+    "require": {
+        "symfony/console": "dev-master"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    "stability": "dev"
+}

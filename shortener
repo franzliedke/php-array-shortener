@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+include 'vendor/autoload.php';
+
+use franzliedke\ArrayShortener\ShortenCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add(new ShortenCommand);
+$application->run();
