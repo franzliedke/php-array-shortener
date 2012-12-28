@@ -22,3 +22,12 @@ In your command line, run:
     php shortener shorten filename.php
 
 This will print the converted code to the command line so that you can pipe it to another file, for example.
+
+To convert all files in an entire directory, run:
+
+    php shortener shorten dirname
+
+To convert all files in an entire directory and all of its subdirectories, run either of the following two commands:
+
+    php shortener shorten -r dirname
+    php shortener shorten --recursive dirname
