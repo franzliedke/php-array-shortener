@@ -30,6 +30,7 @@ class ShortenCommand extends Command
 		$this->setName('shorten')
 		     ->setDescription('Convert a PHP file to use the new PHP 5.4+ shorthand array syntax.')
 		     ->addArgument('file', InputArgument::REQUIRED, 'Which file or folder do you want to convert?')
+		     ->addOption('output', 'o', InputOption::VALUE_REQUIRED, 'The folder where the converted files should be placed. Defaults to shortened_files/.', 'shortened_files/')
 		     ->addOption('recursive', 'r', InputOption::VALUE_NONE, 'Should subfolders be converted, too?');
 	}
 
@@ -38,13 +39,21 @@ class ShortenCommand extends Command
 		$file = $input->getArgument('file');
 		$iterator = $this->getIterator($file, $input);
 
+		$numFiles = 0;
+
 		foreach ($iterator as $element)
 		{
-			$output->writeln('Process file '.$element->getPathname());
-			$result = $this->processFile($element->getPathname());
+			$filename = $element->getPathname();
+
+			$output->writeln('Process file '.$filename);
+			$result = $this->processFile($filename);
+			$this->writeResult($input->getOption('output'), $filename, $result);
+
+			$numFiles++;
 		}
 
-		$output->write($result);
+		$output->writeln('');
+		$output->writeln($numFiles.' file(s) processed.');
 	}
 
 	protected function getIterator($file, InputInterface $input)
@@ -88,5 +97,26 @@ class ShortenCommand extends Command
 	protected function processFile($filename)
 	{
 		return $this->shortener->shorten(file_get_contents($filename));
+	}
+
+	protected function writeResult($outputDir, $filename, $str)
+	{
+		$outputDir = rtrim($outputDir, '/').'/';
+		$outputFile = $outputDir.$filename;
+
+		$subdir = dirname($outputFile);
+		$this->makeDir($subdir);
+		
+		file_put_contents($outputFile, $str);
+	}
+
+	protected function makeDir($name)
+	{
+		if (!file_exists($name))
+		{
+			return mkdir($name, 0777, true);
+		}
+
+		return true;
 	}
 }
