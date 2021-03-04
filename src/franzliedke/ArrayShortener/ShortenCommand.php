@@ -54,6 +54,7 @@ class ShortenCommand extends Command
 
 		$output->writeln('');
 		$output->writeln($numFiles.' file(s) processed.');
+		return 0;
 	}
 
 	protected function getIterator($file, InputInterface $input)
