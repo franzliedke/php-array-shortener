@@ -1,7 +1,7 @@
 {
     "require": {
     	"php": ">=5.4.0",
-        "symfony/console": "dev-master"
+        "symfony/console": "*"
     },
     "autoload": {
         "classmap": ["src/"]
