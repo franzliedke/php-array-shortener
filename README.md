@@ -1,7 +1,7 @@
 PHP Array Shortener
 ===================
 
-[![Build status](https://secure.travis-ci.org/franzliedke/php-array-shortener.png)](https://travis-ci.org/franzliedke/php-array-shortener)
+![Build status](https://github.com/franzliedke/php-array-shortener/actions/workflows/ci.yml/badge.svg)
 
 A CLI tool that converts PHP files to use the new PHP 5.4+ shorthand array syntax.
 
