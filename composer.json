@@ -6,6 +6,9 @@
         "php": ">=5.4.0",
         "symfony/console": "*"
     },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
     "autoload": {
         "classmap": ["src/"]
     }
