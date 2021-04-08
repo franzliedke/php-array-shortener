@@ -2,7 +2,7 @@
 
 use franzliedke\ArrayShortener\Shortener;
 
-class ShortenerTest extends PHPUnit_Framework_TestCase
+class ShortenerTest extends \PHPUnit\Framework\TestCase
 {
 	/**
 	 * @dataProvider exampleProvider
