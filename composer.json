@@ -1,10 +1,12 @@
 {
+    "name": "franzl/php-array-shortener",
+    "description": "A CLI tool that converts PHP files to use the PHP 5.4+ shorthand array syntax.",
+    "license": "MIT",
     "require": {
-    	"php": ">=5.4.0",
+        "php": ">=5.4.0",
         "symfony/console": "*"
     },
     "autoload": {
         "classmap": ["src/"]
-    },
-    "stability": "dev"
+    }
 }
